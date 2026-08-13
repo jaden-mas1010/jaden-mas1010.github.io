@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jaden Mascarenhas — Cybersecurity Analyst (SOC/IR · GRC · OT/ICS)</title>
+<meta name="description" content="Portfolio of Jaden Mascarenhas — Cybersecurity Analyst across SOC/incident response, GRC &amp; compliance (ISO 27001, NIST CSF, GDPR, NIS2), and OT/ICS security." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0A0D12;
+    --panel: #10151D;
+    --panel-2: #141B25;
+    --border: #202A38;
+    --text: #E7ECF2;
+    --text-dim: #8996A6;
+    --text-faint: #5C6879;
+    --green: #35D08C;
+    --green-dim: #1E7A55;
+    --amber: #F0A93B;
+    --red: #FF5C6C;
+    --blue: #5AA9F0;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --maxw: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(53,208,140,0.06), transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(90,169,240,0.05), transparent 45%);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Console header ---------- */
+  .console-bar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .console-bar .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-weight: 600; font-size: 14px; letter-spacing: 0.02em; }
+  .brand-avatar { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+
+  /* ---------- Hero avatar ---------- */
+  .hero-id { display: flex; align-items: center; gap: 16px; margin: 0 0 20px; }
+  .hero-avatar {
+    width: 76px; height: 76px; border-radius: 50%; object-fit: cover;
+    border: 1px solid var(--green-dim); box-shadow: 0 0 0 4px rgba(53,208,140,0.06), 0 10px 30px -12px rgba(0,0,0,0.7);
+    flex-shrink: 0;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:0.35; } }
+  .status-chip {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--green); border: 1px solid var(--green-dim); background: rgba(53,208,140,0.08);
+    padding: 5px 10px; border-radius: 4px;
+  }
+  nav { display: flex; gap: 26px; font-size: 13px; font-family: var(--mono); }
+  nav a { color: var(--text-dim); text-decoration: none; transition: color .15s; }
+  nav a:hover { color: var(--green); }
+  .nav-toggle { display:none; }
+
+  @media (max-width: 720px){
+    nav { display: none; }
+    .status-chip { display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 72px 0 56px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
+  @media (max-width: 880px){ .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--green); margin: 0 0 16px;
+  }
+  h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.08; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.02em; }
+  .role-line { font-family: var(--mono); font-size: 15px; color: var(--text-dim); margin: 0 0 22px; }
+  .role-line .sep { color: var(--text-faint); margin: 0 8px; }
+  .lede { font-size: 16.5px; color: var(--text-dim); max-width: 52ch; margin: 0 0 30px; }
+
+  .lens-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 22px; }
+  .lens-label { font-family: var(--mono); font-size: 12px; color: var(--text-faint); margin-right: 2px; }
+  .lens-chip {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em; cursor: pointer;
+    color: var(--text-dim); background: transparent; border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 999px; transition: all .15s;
+  }
+  .lens-chip:hover { border-color: var(--green-dim); color: var(--text); }
+  .lens-chip.active { background: rgba(53,208,140,0.1); border-color: var(--green); color: var(--green); }
+  .lens-chip.lens-reset { border-style: dashed; }
+  .skill-group { transition: opacity .2s, filter .2s; }
+  .skill-group.dimmed { opacity: 0.32; filter: grayscale(0.6); }
+
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    font-family: var(--mono); font-size: 13px; font-weight: 500; text-decoration: none;
+    padding: 12px 18px; border-radius: 6px; border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 8px; transition: all .15s;
+  }
+  .btn-primary { background: var(--green); color: #06110B; border-color: var(--green); font-weight: 700; }
+  .btn-primary:hover { background: #2fbf80; }
+  .btn-ghost { color: var(--text); background: transparent; }
+  .btn-ghost:hover { border-color: var(--green-dim); color: var(--green); }
+
+  /* Terminal panel */
+  .terminal {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    overflow: hidden; box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-head {
+    display: flex; align-items: center; gap: 8px; padding: 12px 14px;
+    border-bottom: 1px solid var(--border); background: var(--panel-2);
+  }
+  .tdot { width: 10px; height: 10px; border-radius: 50%; }
+  .terminal-title { margin-left: 8px; font-family: var(--mono); font-size: 12px; color: var(--text-faint); }
+  .terminal-body { padding: 18px 18px 22px; font-family: var(--mono); font-size: 13.5px; min-height: 300px; }
+  .terminal-body .line { margin: 0 0 9px; white-space: pre-wrap; word-break: break-word; }
+  .prompt { color: var(--green); }
+  .out { color: var(--text-dim); }
+  .out strong { color: var(--text); font-weight: 600; }
+  .caret { display: inline-block; width: 8px; height: 15px; background: var(--green); vertical-align: text-bottom; animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ---------- Section shell ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 32px; }
+  .sec-index { font-family: var(--mono); color: var(--text-faint); font-size: 13px; }
+  h2 { font-size: 26px; margin: 0; letter-spacing: -0.01em; }
+  .sec-sub { color: var(--text-dim); font-size: 14.5px; margin: -20px 0 32px; max-width: 62ch; }
+
+  /* ---------- Detection cards (projects) ---------- */
+  .det-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 780px){ .det-grid { grid-template-columns: 1fr; } }
+  .det-card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 22px; position: relative; transition: border-color .15s, transform .15s;
+  }
+  .det-card:hover { border-color: var(--green-dim); transform: translateY(-2px); }
+  .det-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .det-id { font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); letter-spacing: 0.05em; }
+  .sev {
+    font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 3px 8px; border-radius: 4px; text-transform: uppercase;
+  }
+  .sev-high { color: var(--red); background: rgba(255,92,108,0.1); border: 1px solid rgba(255,92,108,0.3); }
+  .sev-med { color: var(--amber); background: rgba(240,169,59,0.1); border: 1px solid rgba(240,169,59,0.3); }
+  .sev-low { color: var(--blue); background: rgba(90,169,240,0.1); border: 1px solid rgba(90,169,240,0.3); }
+  .det-title { font-size: 17.5px; font-weight: 700; margin: 0 0 8px; }
+  .det-desc { color: var(--text-dim); font-size: 14px; margin: 0 0 14px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tag {
+    font-family: var(--mono); font-size: 10.5px; color: var(--text-dim);
+    border: 1px solid var(--border); padding: 3px 8px; border-radius: 4px; background: rgba(255,255,255,0.02);
+  }
+  .attck-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+  .attck-tag {
+    font-family: var(--mono); font-size: 10.5px; color: var(--green);
+    border: 1px solid var(--green-dim); padding: 3px 8px; border-radius: 4px; background: rgba(53,208,140,0.06);
+  }
+  .det-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-family: var(--mono); font-size: 12.5px; color: var(--blue); text-decoration: none; }
+  .det-link:hover { text-decoration: underline; }
+
+  /* ---------- ATT&CK coverage grid ---------- */
+  .matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .matrix-cell {
+    border: 1px solid var(--border); border-radius: 8px; padding: 14px 14px 12px;
+    background: var(--panel);
+  }
+  .matrix-cell.active { border-color: var(--green-dim); background: rgba(53,208,140,0.05); }
+  .matrix-tactic { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint); margin-bottom: 8px; }
+  .matrix-cell.active .matrix-tactic { color: var(--green); }
+  .matrix-note { font-size: 12.5px; color: var(--text-dim); }
+  .matrix-cell.active .matrix-note { color: var(--text); }
+
+  /* ---------- Timeline ---------- */
+  .tl { position: relative; padding-left: 26px; }
+  .tl::before { content:""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+  .tl-item { position: relative; padding-bottom: 30px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot { position: absolute; left: -26px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 2px solid var(--green); }
+  .tl-date { font-family: var(--mono); font-size: 12px; color: var(--text-faint); margin-bottom: 4px; }
+  .tl-title { font-weight: 700; font-size: 15.5px; margin: 0 0 3px; }
+  .tl-org { color: var(--text-dim); font-size: 13.5px; margin-bottom: 8px; }
+  .tl-desc { color: var(--text-dim); font-size: 13.5px; margin: 0; }
+  .tl-desc li { margin-bottom: 4px; }
+
+  /* ---------- Skills ---------- */
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .skill-group { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .skill-group h3 { font-size: 12.5px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin: 0 0 12px; }
+  .skill-group ul { list-style: none; margin: 0; padding: 0; }
+  .skill-group li { font-size: 13.5px; color: var(--text-dim); padding: 5px 0; border-top: 1px dashed var(--border); }
+  .skill-group li:first-child { border-top: none; }
+
+  /* ---------- Certs strip ---------- */
+  .cert-strip { display: flex; flex-wrap: wrap; gap: 12px; }
+  .cert-pill {
+    display: flex; align-items: center; gap: 8px;
+    border: 1px solid var(--border); background: var(--panel); border-radius: 30px;
+    padding: 10px 16px; font-size: 13px;
+  }
+  .cert-pill .tick { color: var(--green); font-family: var(--mono); }
+
+  /* ---------- Contact / footer ---------- */
+  .contact { text-align: left; }
+  .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+  @media (max-width: 780px){ .contact-grid { grid-template-columns: 1fr; } }
+  .contact h2 { margin-bottom: 12px; }
+  .contact p { color: var(--text-dim); max-width: 48ch; }
+  .contact-links { display: flex; flex-direction: column; gap: 10px; }
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px;
+    text-decoration: none; color: var(--text); font-family: var(--mono); font-size: 13.5px;
+    background: var(--panel); transition: border-color .15s;
+  }
+  .contact-link:hover { border-color: var(--green-dim); }
+  .contact-link .arrow { color: var(--text-faint); }
+  footer { border-top: 1px solid var(--border); padding: 26px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); flex-wrap: wrap; gap: 10px; }
+
+  /* ---------- Repository index ---------- */
+  .repo-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin: -20px 0 26px; }
+  .repo-count { font-family: var(--mono); font-size: 12px; color: var(--text-faint); }
+  .repo-count strong { color: var(--green); font-weight: 600; }
+
+  .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .filter-chip {
+    font-family: var(--mono); font-size: 12px; color: var(--text-dim);
+    border: 1px solid var(--border); background: var(--panel); border-radius: 20px;
+    padding: 7px 14px; cursor: pointer; transition: all .15s; user-select: none;
+  }
+  .filter-chip .fc-n { color: var(--text-faint); margin-left: 5px; }
+  .filter-chip:hover { border-color: var(--green-dim); color: var(--text); }
+  .filter-chip.active { background: rgba(53,208,140,0.1); border-color: var(--green); color: var(--green); }
+  .filter-chip.active .fc-n { color: var(--green-dim); }
+
+  .repo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 980px){ .repo-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px){ .repo-grid { grid-template-columns: 1fr; } }
+
+  .repo-card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 9px;
+    padding: 16px 17px; transition: border-color .15s, transform .15s;
+    display: flex; flex-direction: column; text-decoration: none; color: inherit;
+  }
+  .repo-card:hover { border-color: var(--green-dim); transform: translateY(-2px); }
+  .repo-card.hidden { display: none; }
+  .repo-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .repo-name { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--text); word-break: break-word; }
+  .repo-lang { font-family: var(--mono); font-size: 10px; color: var(--text-faint); white-space: nowrap; display: flex; align-items: center; gap: 5px; }
+  .repo-lang .ldot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .repo-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; flex-grow: 1; margin: 0 0 12px; }
+  .repo-cat { font-family: var(--mono); font-size: 10px; color: var(--green); letter-spacing: 0.03em; }
+
+  .repo-empty { font-family: var(--mono); font-size: 13px; color: var(--text-faint); padding: 30px 0; text-align: center; display: none; }
+  .repo-empty.show { display: block; }
+  .repo-card.capped { display: none; }
+  .repo-more-row { display: flex; justify-content: center; margin-top: 18px; }
+  .repo-more-row.hide { display: none; }
+  .btn-more {
+    font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text-dim);
+    background: transparent; border: 1px solid var(--border); border-radius: 6px;
+    padding: 10px 18px; cursor: pointer; transition: all .15s; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-more:hover { border-color: var(--green-dim); color: var(--green); }
+  .btn-more .chev { transition: transform .15s; }
+  .btn-more.expanded .chev { transform: rotate(180deg); }
+
+  @media (prefers-reduced-motion: reduce){
+    .dot, .caret { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="console-bar">
+  <div class="wrap">
+    <div class="brand"><img class="brand-avatar" src="assets/jaden-headshot.jpg" alt="Jaden Mascarenhas"><span class="dot"></span> J. MASCARENHAS // SECURITY</div>
+    <nav>
+      <a href="#detections">Detections</a>
+      <a href="#repos">Repositories</a>
+      <a href="#coverage">ATT&amp;CK Coverage</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="status-chip">● Open to work</div>
+  </div>
+</div>
+
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-id">
+        <img class="hero-avatar" src="assets/jaden-headshot.jpg" alt="Portrait of Jaden Mascarenhas">
+        <div>
+          <p class="eyebrow" style="margin-bottom:6px;">Cybersecurity Analyst</p>
+          <h1 style="margin-bottom:0;">Jaden Mascarenhas</h1>
+        </div>
+      </div>
+      <p class="role-line">SOC &amp; Incident Response<span class="sep">/</span>GRC &amp; Compliance<span class="sep">/</span>OT &amp; ICS Security</p>
+      <p class="lede">MSc Information &amp; Network Security student building hands-on capability across three tracks: SOC detection &amp; incident response, GRC &amp; compliance (ISO 27001, NIST CSF, GDPR, NIS2), and OT/ICS attack-chain analysis — aimed at defending enterprise, product, and industrial environments against real-world threats.</p>
+
+      <div class="lens-row" role="group" aria-label="View this portfolio by track">
+        <span class="lens-label">Viewing as:</span>
+        <button class="lens-chip" data-lens="soc" type="button">SOC / IR</button>
+        <button class="lens-chip" data-lens="grc" type="button">GRC / Compliance</button>
+        <button class="lens-chip" data-lens="ot" type="button">OT / ICS</button>
+        <button class="lens-chip lens-reset" data-lens="all" type="button">Show all</button>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#detections">View detections →</a>
+        <a class="btn btn-ghost" href="assets/Jaden-Mascarenhas-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jaden-mascarenhass-989b6a254/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/jaden-mas1010" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="terminal" role="img" aria-label="Terminal panel displaying analyst profile summary">
+      <div class="terminal-head">
+        <span class="tdot" style="background:#FF5C6C"></span>
+        <span class="tdot" style="background:#F0A93B"></span>
+        <span class="tdot" style="background:#35D08C"></span>
+        <span class="terminal-title">analyst-profile — zsh</span>
+      </div>
+      <div class="terminal-body" id="termBody" aria-hidden="true"></div>
+    </div>
+  </div>
+</header>
+
+<section id="detections">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-index">01</span><h2>Detections — Projects &amp; Applied Work</h2></div>
+    <p class="sec-sub">Logged as detections, because that's how a SOC would triage them: each one flags a real capability, with the tooling and technique behind it.</p>
+
+    <div class="det-grid">
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-001</span><span class="sev sev-high">High confidence</span></div>
+        <h3 class="det-title">ICS/OT Detection Engineering — GRFICS Modbus Lab</h3>
+        <p class="det-desc">Ran simulated attacks against a Modbus-based ICS testbed (GRFICSv3), then found the default Suricata ruleset failed to catch key attack traffic. Root-caused the configuration gap and wrote custom detection rules mapped to MITRE ATT&amp;CK for ICS — closing the exact blind spot a real OT SOC would need flagged.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">Suricata</span><span class="tag">Modbus TCP</span><span class="tag">GRFICSv3</span>
+        </div>
+        <div class="attck-row">
+          <span class="attck-tag">Detection Gap Analysis</span><span class="attck-tag">ICS Rule Engineering</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/ot-ics-detection-lab" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-002</span><span class="sev sev-high">High confidence</span></div>
+        <h3 class="det-title">SIEM Investigation — Full Web Attack Chain to C2</h3>
+        <p class="det-desc">Triaged web server logs in Splunk to reconstruct a complete attacker chain end-to-end: reconnaissance, SQL injection &amp; LFI scanning, open-redirect abuse, web shell upload, malware execution, and confirmed C2 beaconing — the kind of chain-of-custody investigation a SOC analyst runs during a live incident.</p>
+        <div class="tag-row">
+          <span class="tag">Splunk</span><span class="tag">SPL</span><span class="tag">Web Shell Detection</span><span class="tag">C2 Identification</span>
+        </div>
+        <div class="attck-row">
+          <span class="attck-tag">Initial Access</span><span class="attck-tag">Command &amp; Control</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/splunk-siem-investigation" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-003</span><span class="sev sev-med">Verified</span></div>
+        <h3 class="det-title">Authentication Anomaly Detection &amp; Risk Scoring Engine</h3>
+        <p class="det-desc">MSc dissertation project: a Python risk-scoring engine using Isolation Forest and LSTM models to flag anomalous login behaviour — normal, suspicious, and brute-force scenarios — with detections mapped to MITRE ATT&amp;CK tactics and techniques. Supervised by Dr. Eckhard Pfluegel, in collaboration with industry partner David Douglas.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">Isolation Forest</span><span class="tag">LSTM</span><span class="tag">Risk Scoring</span>
+        </div>
+        <div class="attck-row">
+          <span class="attck-tag">Credential Access</span><span class="attck-tag">Detection Engineering</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/Design-of-an-Authentication-Anomaly-Detection-and-Risk-Scoring-Model-" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-004</span><span class="sev sev-med">Verified</span></div>
+        <h3 class="det-title">OT Attack-Chain Case Study — Modicon/Schneider Electric PLC</h3>
+        <p class="det-desc">Full attacker-chain case study against a Modicon/Schneider Electric PLC over Modbus TCP: reconnaissance, register mapping, and custom Python exploitation scripts, documented from a SOC analyst's perspective with detection and alerting recommendations attached.</p>
+        <div class="tag-row">
+          <span class="tag">Modbus TCP</span><span class="tag">PLC</span><span class="tag">Python</span><span class="tag">Schneider Electric</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/ics-attacking-plant1-case-study" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-005</span><span class="sev sev-low">Informational</span></div>
+        <h3 class="det-title">ISO 27001 ISMS Framework</h3>
+        <p class="det-desc">A complete ISO/IEC 27001:2022 Information Security Management System built around a simulated FinTech environment — asset register, Annex A control documentation, risk treatment, Statement of Applicability, and audit-ready policy set.</p>
+        <div class="tag-row">
+          <span class="tag">ISO 27001</span><span class="tag">Statement of Applicability</span><span class="tag">Risk Treatment</span><span class="tag">GRC</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/iso27001-isms-framework" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-006</span><span class="sev sev-low">Informational</span></div>
+        <h3 class="det-title">NIS2 &amp; CyFun Gap Assessment</h3>
+        <p class="det-desc">End-to-end NIS2 &amp; CyFun (Cyber Fundamentals) gap assessment: control-by-control scoring against the framework, evidence collection, a risk register, and a prioritised remediation roadmap for a simulated regulated entity.</p>
+        <div class="tag-row">
+          <span class="tag">NIS2</span><span class="tag">CyFun</span><span class="tag">Risk Register</span><span class="tag">Compliance Mapping</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/cyfun-nis2-gap-assessment" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="repos">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-index">02</span><h2>Repository Index</h2></div>
+    <div class="repo-intro">
+      <p class="sec-sub" style="margin:0;">Every public repository, grouped by domain — filter to the area most relevant to the role.</p>
+      <span class="repo-count"><strong>38</strong> repositories across <strong>8</strong> categories</span>
+    </div>
+
+    <div class="filter-row" id="repoFilters">
+      <button class="filter-chip active" data-filter="all">All<span class="fc-n">38</span></button>
+      <button class="filter-chip" data-filter="ics">OT & ICS Security<span class="fc-n">4</span></button>
+      <button class="filter-chip" data-filter="grc">GRC & Compliance<span class="fc-n">3</span></button>
+      <button class="filter-chip" data-filter="soc">SOC, SIEM &amp; Detection Engineering<span class="fc-n">10</span></button>
+      <button class="filter-chip" data-filter="ml">AI/ML for Security<span class="fc-n">3</span></button>
+      <button class="filter-chip" data-filter="pentest">Penetration Testing &amp; Vulnerability Assessment<span class="fc-n">5</span></button>
+      <button class="filter-chip" data-filter="netsec">Network Security &amp; Automation<span class="fc-n">4</span></button>
+      <button class="filter-chip" data-filter="forensics">Forensics, Data &amp; Crypto Tools<span class="fc-n">5</span></button>
+      <button class="filter-chip" data-filter="dev">Software &amp; App Development<span class="fc-n">4</span></button>
+    </div>
+
+    <div class="repo-grid" id="repoGrid">
+      <a class="repo-card" data-cat="ics" href="https://github.com/jaden-mas1010/attacking-ics-plant-2" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">attacking-ics-plant-2</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">Analysis and documentation from the Attacking ICS Plant #2 challenge — attacker chain, Modbus interaction scripts, PLC register mapping, SOC alerting, and detection logic for a practical OT/ICS environment.</p>
+        <span class="repo-cat">OT & ICS Security</span>
+      </a>
+      <a class="repo-card" data-cat="ics" href="https://github.com/jaden-mas1010/ics-attacking-plant1-case-study" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">ics-attacking-plant1-case-study</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">Case study attacking a Modicon/Schneider Electric ICS plant over Modbus TCP, covering the full attack path against a simulated industrial control environment.</p>
+        <span class="repo-cat">OT & ICS Security</span>
+      </a>
+      <a class="repo-card" data-cat="ics" href="https://github.com/jaden-mas1010/ics-modbus-claus-for-concern" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">ics-modbus-claus-for-concern</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">Analysis and documentation from the ICS/Modbus “Claus for Concern” challenge, covering Modbus communications and associated attack/detection scenarios.</p>
+        <span class="repo-cat">OT & ICS Security</span>
+      </a>
+      <a class="repo-card" data-cat="ics" href="https://github.com/jaden-mas1010/ot-ics-detection-lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">ot-ics-detection-lab</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Defensive lab simulating attacks on a Modbus-based ICS (GRFICSv3): root-caused a gap in the default Suricata ruleset and engineered custom detection rules mapped to ATT&amp;CK for ICS to close it.</p>
+        <span class="repo-cat">OT & ICS Security</span>
+      </a>
+      <a class="repo-card" data-cat="grc" href="https://github.com/jaden-mas1010/iso27001-isms-framework" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">iso27001-isms-framework</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A complete ISO/IEC 27001:2022 Information Security Management System (ISMS) framework, including policies, Statement of Applicability, and supporting documentation.</p>
+        <span class="repo-cat">GRC & Compliance</span>
+      </a>
+      <a class="repo-card" data-cat="grc" href="https://github.com/jaden-mas1010/cyfun-nis2-gap-assessment" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">cyfun-nis2-gap-assessment</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Gap assessment mapping an organisation’s security posture against the NIS2 Directive using the CyFun (Cyber Fundamentals) framework.</p>
+        <span class="repo-cat">GRC & Compliance</span>
+      </a>
+      <a class="repo-card" data-cat="grc" href="https://github.com/jaden-mas1010/gdpr-dpa2018-compliance-assessment" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">gdpr-dpa2018-compliance-assessment</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A GDPR and UK DPA 2018 compliance check on a simulated web app, mapping technical security controls to regulatory requirements.</p>
+        <span class="repo-cat">GRC & Compliance</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/Splunk-Enterprise-Windows-Forwarder-Home-Lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Splunk-Enterprise-Windows-Forwarder-Home-Lab</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Home lab shipping Windows endpoint logs to Splunk Enterprise via the Universal Forwarder, for hands-on log ingestion and search practice.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/Home-SOC-SIEM-Lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Home-SOC-SIEM-Lab</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A home SOC &amp; SIEM lab built on Splunk Enterprise, Sysmon (SwiftOnSecurity config), and Windows Server 2022 on VMware — practising real SOC analyst log-analysis and investigation workflows.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/Splunk-Enterprise-Windows-Server-Forwarder-Lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Splunk-Enterprise-Windows-Server-Forwarder-Lab</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Windows Server-focused Splunk Enterprise forwarding lab for ingesting server telemetry and building searches against it.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/splunk-security-monitoring-lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">splunk-security-monitoring-lab</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A practical Splunk security monitoring lab demonstrating log ingestion, index creation, SPL queries, and alerting.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/soc-analyst-playbook" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">soc-analyst-playbook</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A structured SOC Analyst Playbook containing detection rules, investigation checklists, and Windows-focused triage guidance.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/soc-dashboard" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">soc-dashboard</span>
+          <span class="repo-lang"><span class="ldot" style="background:#f1e05a"></span>JavaScript</span>
+        </div>
+        <p class="repo-desc">A real-time SIEM-style dashboard built in React, visualising security events and alerts for SOC monitoring.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/suricata-lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">suricata-lab</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A Suricata IDS/IPS lab for inspecting network traffic and testing signature-based detection rules.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/incident-report-analysis" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">incident-report-analysis</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Hands-on incident handling exercises — an Incident Handler Journal and incident report analysis.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/splunk-siem-investigation" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">splunk-siem-investigation</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Splunk SIEM investigation lab tracing a full web attack chain — recon, SQLi/LFI scanning, open-redirect abuse, web shell upload, and confirmed C2 beaconing.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/splunk-soc-investigation" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">splunk-soc-investigation</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">SOC investigation in Splunk reconstructing an attacker's actions from Windows Security/Sysmon/PowerShell logs — traced WMIC-based lateral movement and a decoded nested Base64 payload.</p>
+        <span class="repo-cat">SOC, SIEM &amp; Detection Engineering</span>
+      </a>
+      <a class="repo-card" data-cat="ml" href="https://github.com/jaden-mas1010/Design-of-an-Authentication-Anomaly-Detection-and-Risk-Scoring-Model-" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Design-of-an-Authentication-Anomaly-Detection-and-Risk-Scoring-Model-</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">MSc dissertation: a Python risk-scoring engine using Isolation Forest and LSTM models to flag anomalous login behaviour, mapped to MITRE ATT&amp;CK.</p>
+        <span class="repo-cat">AI/ML for Security</span>
+      </a>
+      <a class="repo-card" data-cat="ml" href="https://github.com/jaden-mas1010/AI-powered-vulnerability-scanner" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">AI-powered-vulnerability-scanner</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">A modular AI-powered vulnerability scanner combining Nmap-based enumeration, NVD CVE lookup, and an LLM-based triage agent.</p>
+        <span class="repo-cat">AI/ML for Security</span>
+      </a>
+      <a class="repo-card" data-cat="ml" href="https://github.com/jaden-mas1010/Fraud-Detection-Anomaly-Analysis-System-Machine-Learning-" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Fraud-Detection-Anomaly-Analysis-System-Machine-Learning-</span>
+          <span class="repo-lang"><span class="ldot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
+        </div>
+        <p class="repo-desc">A machine learning model for fraud detection on imbalanced datasets, covering preprocessing, feature engineering, and evaluation.</p>
+        <span class="repo-cat">AI/ML for Security</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/Metasploitable2-Vulnerability-Assessment" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Metasploitable2-Vulnerability-Assessment</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">End-to-end Metasploitable2 vulnerability assessment: reconnaissance, exploitation (vsftpd backdoor, distcc RCE, Samba CVE-2007-2447), reverse shells, and Wireshark traffic analysis.</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/Walking-An-Application-THM" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Walking-An-Application-THM</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Write-up documenting hands-on learning from the “Walking an Application” room on TryHackMe.</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/port-scanner" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">port-scanner</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">A simple Python port scanner for network security testing.</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/python-zip-bruteforce" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">python-zip-bruteforce</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">A Python ZIP password brute-force tool, demonstrating dictionary-attack triage in a ransomware scenario.</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/evilurl-shield" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">evilurl-shield</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3178c6"></span>TypeScript</span>
+        </div>
+        <p class="repo-desc">A defensive security utility that identifies and mitigates IDN homograph attacks (look-alike phishing URLs).</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
+      </a>
+      <a class="repo-card" data-cat="netsec" href="https://github.com/jaden-mas1010/Network-Configuration-Automation-Toolkit" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Network-Configuration-Automation-Toolkit</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">A network automation toolkit for generating Cisco router and switch configurations programmatically.</p>
+        <span class="repo-cat">Network Security &amp; Automation</span>
+      </a>
+      <a class="repo-card" data-cat="netsec" href="https://github.com/jaden-mas1010/hospital-network-cisco-packet-tracer" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">hospital-network-cisco-packet-tracer</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Secure smart-hospital network design in Cisco Packet Tracer, using VLAN segmentation, ACLs, and inter-VLAN routing.</p>
+        <span class="repo-cat">Network Security &amp; Automation</span>
+      </a>
+      <a class="repo-card" data-cat="netsec" href="https://github.com/jaden-mas1010/ip_access_manager" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">ip_access_manager</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A tool for managing IP allow/deny access lists as part of network access control.</p>
+        <span class="repo-cat">Network Security &amp; Automation</span>
+      </a>
+      <a class="repo-card" data-cat="netsec" href="https://github.com/jaden-mas1010/allowlist-cleaner" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">allowlist-cleaner</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">A Python utility for cleaning, validating, and de-duplicating IP/domain allowlists.</p>
+        <span class="repo-cat">Network Security &amp; Automation</span>
+      </a>
+      <a class="repo-card" data-cat="forensics" href="https://github.com/jaden-mas1010/Forensics-toolkit" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Forensics-toolkit</span>
+          <span class="repo-lang"><span class="ldot" style="background:#f1e05a"></span>JavaScript</span>
+        </div>
+        <p class="repo-desc">A digital forensics toolkit for analysing files, detecting suspicious activity, and assisting incident investigations.</p>
+        <span class="repo-cat">Forensics, Data &amp; Crypto Tools</span>
+      </a>
+      <a class="repo-card" data-cat="forensics" href="https://github.com/jaden-mas1010/file-integrity-hash-lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">file-integrity-hash-lab</span>
+          <span class="repo-lang"><span class="ldot" style="background:#89e051"></span>Shell</span>
+        </div>
+        <p class="repo-desc">A file-integrity monitoring lab verifying files with SHA-256 hashes to detect unauthorised changes.</p>
+        <span class="repo-cat">Forensics, Data &amp; Crypto Tools</span>
+      </a>
+      <a class="repo-card" data-cat="forensics" href="https://github.com/jaden-mas1010/regex-ip-log-analysis" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">regex-ip-log-analysis</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">Extracts and analyses flagged IP addresses from log files using Python regex.</p>
+        <span class="repo-cat">Forensics, Data &amp; Crypto Tools</span>
+      </a>
+      <a class="repo-card" data-cat="forensics" href="https://github.com/jaden-mas1010/SQL-PROJECT" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">SQL-PROJECT</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Portfolio SQL project analysing device and login data using joins, window functions, and reporting queries.</p>
+        <span class="repo-cat">Forensics, Data &amp; Crypto Tools</span>
+      </a>
+      <a class="repo-card" data-cat="forensics" href="https://github.com/jaden-mas1010/shamir-secret-sharing" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">shamir-secret-sharing</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">A Python implementation of Shamir’s Secret Sharing algorithm for secure key distribution.</p>
+        <span class="repo-cat">Forensics, Data &amp; Crypto Tools</span>
+      </a>
+      <a class="repo-card" data-cat="dev" href="https://github.com/jaden-mas1010/ecommerce-website" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">ecommerce-website</span>
+          <span class="repo-lang"><span class="ldot" style="background:#e34c26"></span>HTML</span>
+        </div>
+        <p class="repo-desc">A modern eCommerce website front end.</p>
+        <span class="repo-cat">Software &amp; App Development</span>
+      </a>
+      <a class="repo-card" data-cat="dev" href="https://github.com/jaden-mas1010/Aviation-Ground-Handling-Website" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Aviation-Ground-Handling-Website</span>
+          <span class="repo-lang"><span class="ldot" style="background:#e34c26"></span>HTML</span>
+        </div>
+        <p class="repo-desc">An aviation ground-handling services website.</p>
+        <span class="repo-cat">Software &amp; App Development</span>
+      </a>
+      <a class="repo-card" data-cat="dev" href="https://github.com/jaden-mas1010/Bluetooth-payment-app" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Bluetooth-payment-app</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">A Flutter-based Bluetooth app for scanning, pairing, and connecting nearby devices, built with Firebase.</p>
+        <span class="repo-cat">Software &amp; App Development</span>
+      </a>
+      <a class="repo-card" data-cat="dev" href="https://github.com/jaden-mas1010/Finance-Tracker" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Finance-Tracker</span>
+          <span class="repo-lang"><span class="ldot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
+        </div>
+        <p class="repo-desc">A personal finance/expense tracker for analysing day-to-day spending.</p>
+        <span class="repo-cat">Software &amp; App Development</span>
+      </a>
+    </div>
+    <p class="repo-empty" id="repoEmpty">No repositories in this category yet.</p>
+    <div class="repo-more-row" id="repoMoreRow">
+      <button class="btn-more" id="repoMoreBtn" type="button" aria-expanded="false">
+        <span class="label">See more</span><span class="chev">▾</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var CAP = 6;
+  var chips = document.querySelectorAll('#repoFilters .filter-chip');
+  var cards = document.querySelectorAll('#repoGrid .repo-card');
+  var empty = document.getElementById('repoEmpty');
+  var moreRow = document.getElementById('repoMoreRow');
+  var moreBtn = document.getElementById('repoMoreBtn');
+  var moreLabel = moreBtn.querySelector('.label');
+  var expanded = false;
+
+  function applyView(){
+    var f = document.querySelector('#repoFilters .filter-chip.active').getAttribute('data-filter');
+    var matches = [];
+    cards.forEach(function(card){
+      var isMatch = (f === 'all' || card.getAttribute('data-cat') === f);
+      card.classList.toggle('hidden', !isMatch);
+      if (isMatch) matches.push(card);
+    });
+    matches.forEach(function(card, i){
+      card.classList.toggle('capped', !expanded && i >= CAP);
+    });
+    empty.classList.toggle('show', matches.length === 0);
+    var hasMore = matches.length > CAP;
+    moreRow.classList.toggle('hide', !hasMore);
+    moreBtn.setAttribute('aria-expanded', expanded);
+    moreBtn.classList.toggle('expanded', expanded);
+    moreLabel.textContent = expanded ? 'See less' : 'See more (' + (matches.length - CAP) + ')';
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      expanded = false;
+      applyView();
+    });
+  });
+
+  moreBtn.addEventListener('click', function(){
+    expanded = !expanded;
+    applyView();
+    if (!expanded) {
+      document.getElementById('repos').scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  });
+
+  applyView();
+
+  // ---- Lens toggle: "Viewing as" SOC/IR, GRC/Compliance, OT/ICS ----
+  var lensChips = document.querySelectorAll('.lens-chip');
+  var skillGroups = document.querySelectorAll('.skill-group');
+  var lensToRepoFilter = { soc: 'soc', grc: 'grc', ot: 'ics', all: 'all' };
+
+  lensChips.forEach(function(lensChip){
+    lensChip.addEventListener('click', function(){
+      var lens = lensChip.getAttribute('data-lens');
+      lensChips.forEach(function(c){ c.classList.remove('active'); });
+      lensChip.classList.add('active');
+
+      skillGroups.forEach(function(group){
+        var tags = (group.getAttribute('data-lens') || '').split(' ');
+        var match = (lens === 'all' || tags.indexOf(lens) !== -1);
+        group.classList.toggle('dimmed', !match);
+      });
+
+      var targetFilter = lensToRepoFilter[lens] || 'all';
+      var targetChip = document.querySelector('#repoFilters .filter-chip[data-filter="' + targetFilter + '"]');
+      if (targetChip) { targetChip.click(); }
+    });
+  });
+})();
+</script>
+
+<section id="coverage">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-index">03</span><h2>MITRE ATT&amp;CK — Areas of Applied Coverage</h2></div>
+    <p class="sec-sub">Where hands-on project work maps onto the ATT&amp;CK framework used to structure real incident response and threat hunting.</p>
+    <div class="matrix">
+      <div class="matrix-cell active"><div class="matrix-tactic">Credential Access</div><div class="matrix-note">Login anomaly &amp; brute-force detection modelling</div></div>
+      <div class="matrix-cell active"><div class="matrix-tactic">Discovery</div><div class="matrix-note">Vulnerability scanning &amp; CVE correlation</div></div>
+      <div class="matrix-cell active"><div class="matrix-tactic">Defense Evasion</div><div class="matrix-note">Endpoint telemetry &amp; detection tuning in SOC lab</div></div>
+      <div class="matrix-cell"><div class="matrix-tactic">Initial Access</div><div class="matrix-note">Studied via coursework &amp; threat modelling</div></div>
+      <div class="matrix-cell"><div class="matrix-tactic">Lateral Movement</div><div class="matrix-note">Studied via coursework &amp; threat modelling</div></div>
+      <div class="matrix-cell"><div class="matrix-tactic">Exfiltration</div><div class="matrix-note">Studied via coursework &amp; threat modelling</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-index">04</span><h2>Timeline</h2></div>
+    <div class="tl">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-date">2025 — 2026</div>
+        <div class="tl-title">MSc Information &amp; Network Security</div>
+        <div class="tl-org">Kingston University London</div>
+        <ul class="tl-desc"><li>Dissertation on authentication anomaly detection &amp; MITRE ATT&amp;CK-mapped risk scoring.</li></ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-date">Apr 2025 — Jul 2025</div>
+        <div class="tl-title">Software Development Intern</div>
+        <div class="tl-org">Tanayanand Private Limited</div>
+        <ul class="tl-desc"><li>Full-stack development, strengthening secure coding fundamentals.</li></ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-date">Apr 2023 — Sep 2023</div>
+        <div class="tl-title">Cybersecurity Intern</div>
+        <div class="tl-org">Stanza Infotech Pvt. Ltd.</div>
+        <ul class="tl-desc">
+          <li>Hardened AWS IAM and KMS configurations.</li>
+          <li>Ran vulnerability assessments and produced NIST CSF-aligned documentation.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-date">Graduated</div>
+        <div class="tl-title">BE Computer Engineering</div>
+        <div class="tl-org">Don Bosco College of Engineering, Goa University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-index">05</span><h2>Skills</h2></div>
+    <div class="skill-grid">
+      <div class="skill-group" data-lens="soc">
+        <h3>Incident Response &amp; Hunting</h3>
+        <ul><li>Incident response fundamentals</li><li>Threat hunting</li><li>Digital forensics fundamentals</li><li>Log analysis</li><li>File integrity monitoring</li></ul>
+      </div>
+      <div class="skill-group" data-lens="soc">
+        <h3>Detection &amp; SIEM</h3>
+        <ul><li>Splunk Enterprise</li><li>Sysmon / endpoint telemetry</li><li>Suricata IDS/IPS</li><li>MITRE ATT&amp;CK mapping</li><li>Windows Server &amp; Active Directory</li></ul>
+      </div>
+      <div class="skill-group" data-lens="ot">
+        <h3>OT &amp; ICS Security</h3>
+        <ul><li>Safety &gt; Availability &gt; Confidentiality priority (inverse of IT CIA)</li><li>Purdue Model / IEC 62443 zone &amp; conduit awareness (coursework-level)</li><li>Modbus TCP protocol analysis</li><li>PLC / SCADA attack-chain documentation</li><li>Industrial network threat modelling</li></ul>
+      </div>
+      <div class="skill-group" data-lens="ot soc">
+        <h3>Network Engineering &amp; Automation</h3>
+        <ul><li>Cisco IOS configuration</li><li>VLAN segmentation &amp; ACLs</li><li>Cisco Packet Tracer network design</li><li>Python network automation</li><li>IP access control tooling</li></ul>
+      </div>
+      <div class="skill-group" data-lens="soc grc">
+        <h3>Cloud &amp; Identity</h3>
+        <ul><li>AWS IAM</li><li>AWS KMS</li><li>Identity &amp; access management</li><li>Cloud security hardening</li></ul>
+      </div>
+      <div class="skill-group" data-lens="grc">
+        <h3>GRC &amp; Frameworks</h3>
+        <ul><li>ISO 27001</li><li>NIST CSF</li><li>GDPR &amp; UK DPA 2018</li><li>NIS2 / CyFun</li><li>Risk assessment</li><li>Policy documentation</li></ul>
+      </div>
+      <div class="skill-group" data-lens="soc">
+        <h3>AI/ML for Security</h3>
+        <ul><li>Isolation Forest / LSTM anomaly models</li><li>LLM-based triage agents</li><li>Fraud &amp; anomaly detection modelling</li><li>ATT&amp;CK-mapped risk scoring</li></ul>
+      </div>
+      <div class="skill-group" data-lens="soc">
+        <h3>Software &amp; Security Engineering</h3>
+        <ul><li>Python security tooling</li><li>React / TypeScript</li><li>SQL &amp; data analysis</li><li>Applied cryptography</li><li>Flutter / mobile</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-index">06</span><h2>Certifications</h2></div>
+    <div class="cert-strip">
+      <div class="cert-pill"><span class="tick">✓</span> ISC2 Certified in Cybersecurity (CC)</div>
+      <div class="cert-pill"><span class="tick">✓</span> Google Cybersecurity Certificate</div>
+      <div class="cert-pill"><span class="tick">✓</span> AWS Academy Cloud Foundations</div>
+      <div class="cert-pill"><span class="tick">✓</span> Tata — Cybersecurity Analyst Job Simulation</div>
+      <div class="cert-pill"><span class="tick">✓</span> AIG — Shields Up: Cybersecurity Job Simulation</div>
+      <div class="cert-pill"><span class="tick">✓</span> EC-Council — Cybersecurity for Businesses</div>
+      <div class="cert-pill"><span class="tick">✓</span> Anthropic — AI Fluency Framework &amp; Foundations</div>
+      <div class="cert-pill"><span class="tick">…</span> CompTIA Security+ — in progress</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Let's talk about defending your environment.</h2>
+      <p>Based in London, UK — open to roles across SOC/Incident Response, GRC &amp; Compliance, and OT/ICS Security. Graduate Route visa holder, no sponsorship required to work in the UK. Happy to walk through any of the detections above in more depth.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:mascarenhasjaden10@gmail.com">Email <span class="arrow">→</span></a>
+      <a class="contact-link" href="https://www.linkedin.com/in/jaden-mascarenhass-989b6a254/" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
+      <a class="contact-link" href="https://github.com/jaden-mas1010" target="_blank" rel="noopener">GitHub <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Jaden Mascarenhas</span>
+    <span>London, UK — Cybersecurity Analyst</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.getElementById('termBody');
+  var script = [
+    { type: 'cmd', text: 'whoami' },
+    { type: 'out', text: 'jaden.mascarenhas' },
+    { type: 'cmd', text: 'cat profile.txt' },
+    { type: 'out', text: '<strong>MSc Information &amp; Network Security</strong> — Kingston University London (2025–2026)' },
+    { type: 'out', text: '<strong>BE Computer Engineering</strong> — Don Bosco College of Engineering, Goa' },
+    { type: 'out', text: 'Certs: ISC2 CC · Google Cybersecurity Cert · AWS Cloud Foundations · CompTIA Security+ (in progress)' },
+    { type: 'cmd', text: 'tail -f alerts.log' },
+    { type: 'out', text: '[INFO] home SOC lab online — Splunk + Sysmon + Win Server 2022' },
+    { type: 'out', text: '[INFO] risk-scoring engine: anomaly detected — mapped to ATT&CK' },
+    { type: 'cmd', text: 'status' },
+    { type: 'out', text: '<strong style="color:#35D08C">AVAILABLE</strong> — SOC/IR · GRC/Compliance · OT/ICS roles' },
+  ];
+
+  if (reduce) {
+    body.innerHTML = script.map(function(l){
+      return '<p class="line ' + (l.type === 'cmd' ? '' : 'out') + '">' + (l.type === 'cmd' ? '<span class="prompt">$ </span>' : '') + l.text + '</p>';
+    }).join('');
+    return;
+  }
+
+  var i = 0;
+  function typeLine(){
+    if (i >= script.length) {
+      var caret = document.createElement('span');
+      caret.className = 'caret';
+      body.appendChild(caret);
+      return;
+    }
+    var item = script[i];
+    var p = document.createElement('p');
+    p.className = 'line' + (item.type === 'out' ? ' out' : '');
+    body.appendChild(p);
+
+    if (item.type === 'cmd') {
+      var prompt = document.createElement('span');
+      prompt.className = 'prompt';
+      prompt.textContent = '$ ';
+      p.appendChild(prompt);
+      var span = document.createElement('span');
+      p.appendChild(span);
+      var chars = item.text.split('');
+      var ci = 0;
+      var iv = setInterval(function(){
+        span.textContent += chars[ci];
+        ci++;
+        if (ci >= chars.length) {
+          clearInterval(iv);
+          i++;
+          setTimeout(typeLine, 220);
+        }
+      }, 26);
+    } else {
+      p.innerHTML = item.text;
+      i++;
+      setTimeout(typeLine, 260);
+    }
+  }
+  typeLine();
+})();
+</script>
+
+</body>
+</html>
