@@ -334,7 +334,7 @@
       <div class="btn-row">
         <a class="btn btn-primary" href="#detections">View detections →</a>
         <a class="btn btn-ghost" href="assets/Jaden-Mascarenhas-CV.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jaden-mascarenhass-989b6a254/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jaden-mascarenhas-989b6a254/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/jaden-mas1010" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
@@ -360,6 +360,19 @@
 
       <article class="det-card">
         <div class="det-top"><span class="det-id">DET-001</span><span class="sev sev-high">High confidence</span></div>
+        <h3 class="det-title">Vulnerability Risk Prioritization Pipeline</h3>
+        <p class="det-desc">A Python pipeline that ranks vulnerability scan findings by composite risk — CVSS × asset criticality, boosted by a live CISA KEV exploitation check — so a lower-CVSS finding on a critical, actively-exploited asset correctly outranks a maxed-CVSS finding on a low-value host. Validated against a real Nessus scan of 11 CVE-backed findings, correctly prioritizing two CVEs with 95–99% predicted exploitation likelihood (EPSS) above lower-risk findings. 10 passing unit tests, CI on every push.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">Nessus</span><span class="tag">CISA KEV</span><span class="tag">CVSS/CVE/CWE</span><span class="tag">CI/CD</span>
+        </div>
+        <div class="attck-row">
+          <span class="attck-tag">Vulnerability Prioritization</span><span class="attck-tag">Risk Scoring</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/vulnerability-risk-prioritization-tool" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-002</span><span class="sev sev-high">High confidence</span></div>
         <h3 class="det-title">ICS/OT Detection Engineering — GRFICS Modbus Lab</h3>
         <p class="det-desc">Ran simulated attacks against a Modbus-based ICS testbed (GRFICSv3), then found the default Suricata ruleset failed to catch key attack traffic. Root-caused the configuration gap and wrote custom detection rules mapped to MITRE ATT&amp;CK for ICS — closing the exact blind spot a real OT SOC would need flagged.</p>
         <div class="tag-row">
@@ -372,7 +385,7 @@
       </article>
 
       <article class="det-card">
-        <div class="det-top"><span class="det-id">DET-002</span><span class="sev sev-high">High confidence</span></div>
+        <div class="det-top"><span class="det-id">DET-003</span><span class="sev sev-high">High confidence</span></div>
         <h3 class="det-title">SIEM Investigation — Full Web Attack Chain to C2</h3>
         <p class="det-desc">Triaged web server logs in Splunk to reconstruct a complete attacker chain end-to-end: reconnaissance, SQL injection &amp; LFI scanning, open-redirect abuse, web shell upload, malware execution, and confirmed C2 beaconing — the kind of chain-of-custody investigation a SOC analyst runs during a live incident.</p>
         <div class="tag-row">
@@ -385,7 +398,7 @@
       </article>
 
       <article class="det-card">
-        <div class="det-top"><span class="det-id">DET-003</span><span class="sev sev-med">Verified</span></div>
+        <div class="det-top"><span class="det-id">DET-004</span><span class="sev sev-med">Verified</span></div>
         <h3 class="det-title">Authentication Anomaly Detection &amp; Risk Scoring Engine</h3>
         <p class="det-desc">MSc dissertation project: a Python risk-scoring engine using Isolation Forest and LSTM models to flag anomalous login behaviour — normal, suspicious, and brute-force scenarios — with detections mapped to MITRE ATT&amp;CK tactics and techniques. Supervised by Dr. Eckhard Pfluegel, in collaboration with industry partner David Douglas.</p>
         <div class="tag-row">
@@ -398,7 +411,7 @@
       </article>
 
       <article class="det-card">
-        <div class="det-top"><span class="det-id">DET-004</span><span class="sev sev-med">Verified</span></div>
+        <div class="det-top"><span class="det-id">DET-005</span><span class="sev sev-med">Verified</span></div>
         <h3 class="det-title">OT Attack-Chain Case Study — Modicon/Schneider Electric PLC</h3>
         <p class="det-desc">Full attacker-chain case study against a Modicon/Schneider Electric PLC over Modbus TCP: reconnaissance, register mapping, and custom Python exploitation scripts, documented from a SOC analyst's perspective with detection and alerting recommendations attached.</p>
         <div class="tag-row">
@@ -408,7 +421,7 @@
       </article>
 
       <article class="det-card">
-        <div class="det-top"><span class="det-id">DET-005</span><span class="sev sev-low">Informational</span></div>
+        <div class="det-top"><span class="det-id">DET-006</span><span class="sev sev-low">Informational</span></div>
         <h3 class="det-title">ISO 27001 ISMS Framework</h3>
         <p class="det-desc">A complete ISO/IEC 27001:2022 Information Security Management System built around a simulated FinTech environment — asset register, Annex A control documentation, risk treatment, Statement of Applicability, and audit-ready policy set.</p>
         <div class="tag-row">
@@ -418,13 +431,33 @@
       </article>
 
       <article class="det-card">
-        <div class="det-top"><span class="det-id">DET-006</span><span class="sev sev-low">Informational</span></div>
+        <div class="det-top"><span class="det-id">DET-007</span><span class="sev sev-low">Informational</span></div>
         <h3 class="det-title">NIS2 &amp; CyFun Gap Assessment</h3>
         <p class="det-desc">End-to-end NIS2 &amp; CyFun (Cyber Fundamentals) gap assessment: control-by-control scoring against the framework, evidence collection, a risk register, and a prioritised remediation roadmap for a simulated regulated entity.</p>
         <div class="tag-row">
           <span class="tag">NIS2</span><span class="tag">CyFun</span><span class="tag">Risk Register</span><span class="tag">Compliance Mapping</span>
         </div>
         <a class="det-link" href="https://github.com/jaden-mas1010/cyfun-nis2-gap-assessment" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-008</span><span class="sev sev-med">Verified</span></div>
+        <h3 class="det-title">SOC 2 Trust Services Criteria Readiness Assessment</h3>
+        <p class="det-desc">A client-facing SOC 2 readiness assessment for a simulated SaaS company: a 35-control matrix scored against the Trust Services Criteria, a risk-scored gap analysis, and audit-ready evidence artefacts — the kind of deliverable a GRC analyst hands directly to a client or auditor, not just an internal framework mapping.</p>
+        <div class="tag-row">
+          <span class="tag">SOC 2</span><span class="tag">Trust Services Criteria</span><span class="tag">Audit Evidence</span><span class="tag">GRC</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/soc2-trust-criteria-assessment" target="_blank" rel="noopener">View repository →</a>
+      </article>
+
+      <article class="det-card">
+        <div class="det-top"><span class="det-id">DET-009</span><span class="sev sev-med">Verified</span></div>
+        <h3 class="det-title">Cloud Security Validation Lab</h3>
+        <p class="det-desc">Automated cloud security posture checks across AWS (via boto3/moto), Kubernetes manifest validation, and Terraform — with eBPF-based process observability and GitHub Actions CI running the checks on every push, rather than a one-off manual review.</p>
+        <div class="tag-row">
+          <span class="tag">AWS</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">eBPF</span><span class="tag">CI/CD</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/cloud-security-validation-lab" target="_blank" rel="noopener">View repository →</a>
       </article>
 
     </div>
@@ -436,19 +469,20 @@
     <div class="sec-head"><span class="sec-index">02</span><h2>Repository Index</h2></div>
     <div class="repo-intro">
       <p class="sec-sub" style="margin:0;">Every public repository, grouped by domain — filter to the area most relevant to the role.</p>
-      <span class="repo-count"><strong>40</strong> repositories across <strong>8</strong> categories</span>
+      <span class="repo-count"><strong>45</strong> repositories across <strong>9</strong> categories</span>
     </div>
 
     <div class="filter-row" id="repoFilters">
-      <button class="filter-chip active" data-filter="all">All<span class="fc-n">40</span></button>
+      <button class="filter-chip active" data-filter="all">All<span class="fc-n">45</span></button>
       <button class="filter-chip" data-filter="ics">OT & ICS Security<span class="fc-n">4</span></button>
-      <button class="filter-chip" data-filter="grc">GRC & Compliance<span class="fc-n">3</span></button>
+      <button class="filter-chip" data-filter="grc">GRC & Compliance<span class="fc-n">4</span></button>
       <button class="filter-chip" data-filter="soc">SOC, SIEM &amp; Detection Engineering<span class="fc-n">10</span></button>
       <button class="filter-chip" data-filter="ml">AI/ML for Security<span class="fc-n">3</span></button>
-      <button class="filter-chip" data-filter="pentest">Penetration Testing &amp; Vulnerability Assessment<span class="fc-n">7</span></button>
+      <button class="filter-chip" data-filter="pentest">Penetration Testing &amp; Vulnerability Assessment<span class="fc-n">9</span></button>
       <button class="filter-chip" data-filter="netsec">Network Security &amp; Automation<span class="fc-n">4</span></button>
       <button class="filter-chip" data-filter="forensics">Forensics, Data &amp; Crypto Tools<span class="fc-n">5</span></button>
       <button class="filter-chip" data-filter="dev">Software &amp; App Development<span class="fc-n">4</span></button>
+      <button class="filter-chip" data-filter="itsupport">IT Support &amp; Operations<span class="fc-n">2</span></button>
     </div>
 
     <div class="repo-grid" id="repoGrid">
@@ -507,6 +541,22 @@
         </div>
         <p class="repo-desc">A GDPR and UK DPA 2018 compliance check on a simulated web app, mapping technical security controls to regulatory requirements.</p>
         <span class="repo-cat">GRC & Compliance</span>
+      </a>
+      <a class="repo-card" data-cat="grc" href="https://github.com/jaden-mas1010/soc2-trust-criteria-assessment" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">soc2-trust-criteria-assessment</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">SOC 2 Trust Services Criteria readiness assessment: 35-control matrix, risk-scored gap analysis, and audit-ready evidence artefacts for a simulated SaaS company.</p>
+        <span class="repo-cat">GRC & Compliance</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/cloud-security-validation-lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">cloud-security-validation-lab</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">Automated AWS, Kubernetes, and Terraform security posture checks with eBPF process observability, run via GitHub Actions CI on every push.</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
       </a>
       <a class="repo-card" data-cat="soc" href="https://github.com/jaden-mas1010/Splunk-Enterprise-Windows-Forwarder-Home-Lab" target="_blank" rel="noopener">
         <div class="repo-top">
@@ -611,6 +661,14 @@
         </div>
         <p class="repo-desc">A machine learning model for fraud detection on imbalanced datasets, covering preprocessing, feature engineering, and evaluation.</p>
         <span class="repo-cat">AI/ML for Security</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/vulnerability-risk-prioritization-tool" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">vulnerability-risk-prioritization-tool</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">Ranks vulnerability scan findings by composite risk (CVSS × asset criticality + live CISA KEV boost). Validated against a real Nessus scan of a Metasploitable2 host. 10 passing tests, CI on every push.</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
       </a>
       <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/Metasploitable2-Vulnerability-Assessment" target="_blank" rel="noopener">
         <div class="repo-top">
@@ -772,6 +830,22 @@
         <p class="repo-desc">A personal finance/expense tracker for analysing day-to-day spending.</p>
         <span class="repo-cat">Software &amp; App Development</span>
       </a>
+      <a class="repo-card" data-cat="itsupport" href="https://github.com/jaden-mas1010/IT-onboarding-offboarding-runbook" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">IT-onboarding-offboarding-runbook</span>
+          <span class="repo-lang"><span class="ldot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <p class="repo-desc">Self-directed IT support lab with live Jira Service Management tickets, onboarding/offboarding checklists, KB articles, and an SLA/asset tracker.</p>
+        <span class="repo-cat">IT Support &amp; Operations</span>
+      </a>
+      <a class="repo-card" data-cat="itsupport" href="https://github.com/jaden-mas1010/helpdesk-ticket-simulation" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">helpdesk-ticket-simulation</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">Simulated IT helpdesk tickets and SOPs covering access, VPN, software, hardware, onboarding, and offboarding — modelled on real Tier 1/2 support workflows.</p>
+        <span class="repo-cat">IT Support &amp; Operations</span>
+      </a>
     </div>
     <p class="repo-empty" id="repoEmpty">No repositories in this category yet.</p>
     <div class="repo-more-row" id="repoMoreRow">
@@ -891,12 +965,21 @@
       </div>
       <div class="tl-item">
         <span class="tl-dot"></span>
-        <div class="tl-date">Apr 2023 — Sep 2023</div>
+        <div class="tl-date">Jun 2024 — Sep 2024</div>
         <div class="tl-title">Cybersecurity Intern</div>
         <div class="tl-org">Stanza Infotech Pvt. Ltd.</div>
         <ul class="tl-desc">
           <li>Hardened AWS IAM and KMS configurations.</li>
           <li>Ran vulnerability assessments and produced NIST CSF-aligned documentation.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-date">Apr 2024 — Jun 2024</div>
+        <div class="tl-title">Network Infrastructure Intern</div>
+        <div class="tl-org">BIZ Nest, Goa</div>
+        <ul class="tl-desc">
+          <li>Configured 8–14 network devices for enterprise deployment with zero post-deployment incidents.</li>
         </ul>
       </div>
       <div class="tl-item">
@@ -970,11 +1053,11 @@
     <div>
       <p class="eyebrow">Get in touch</p>
       <h2>Let's talk about defending your environment.</h2>
-      <p>Based in London, UK — open to roles across SOC/Incident Response, GRC &amp; Compliance, and OT/ICS Security. Graduate Route visa holder, no sponsorship required to work in the UK. Happy to walk through any of the detections above in more depth.</p>
+      <p>Relocating to Nashik, Maharashtra, India in September 2026 — open to remote and India-based roles across SOC/Incident Response, GRC &amp; Compliance, and OT/ICS Security. Currently completing an MSc in the UK. Happy to walk through any of the detections above in more depth.</p>
     </div>
     <div class="contact-links">
-      <a class="contact-link" href="mailto:mascarenhasjaden10@gmail.com">Email <span class="arrow">→</span></a>
-      <a class="contact-link" href="https://www.linkedin.com/in/jaden-mascarenhass-989b6a254/" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
+      <a class="contact-link" href="mailto:mascarenhasjaden1010@gmail.com">Email <span class="arrow">→</span></a>
+      <a class="contact-link" href="https://www.linkedin.com/in/jaden-mascarenhas-989b6a254/" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
       <a class="contact-link" href="https://github.com/jaden-mas1010" target="_blank" rel="noopener">GitHub <span class="arrow">→</span></a>
     </div>
   </div>
@@ -983,7 +1066,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Jaden Mascarenhas</span>
-    <span>London, UK — Cybersecurity Analyst</span>
+    <span>Relocating to India, Sept 2026 — Cybersecurity Analyst</span>
   </div>
 </footer>
 
