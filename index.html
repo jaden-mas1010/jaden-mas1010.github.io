@@ -431,13 +431,16 @@
       </article>
 
       <article class="det-card">
-        <div class="det-top"><span class="det-id">DET-007</span><span class="sev sev-low">Informational</span></div>
-        <h3 class="det-title">NIS2 &amp; CyFun Gap Assessment</h3>
-        <p class="det-desc">End-to-end NIS2 &amp; CyFun (Cyber Fundamentals) gap assessment: control-by-control scoring against the framework, evidence collection, a risk register, and a prioritised remediation roadmap for a simulated regulated entity.</p>
+        <div class="det-top"><span class="det-id">DET-007</span><span class="sev sev-high">High confidence</span></div>
+        <h3 class="det-title">Vulnerability Assessment &amp; Detection Lab</h3>
+        <p class="det-desc">Full assessment lifecycle against an isolated Kali/Metasploitable2/DVWA lab: 20+ services enumerated with Nmap, manual + sqlmap-validated SQL injection, a scanner-confirmed CVE-2012-1823 RCE via OWASP ZAP, Hydra credential testing, and reflected XSS — each finding written up as a full case file with evidence, root cause, and remediation. Backed by a custom Snort detection rule, SSH auth-log triage, and Linux/Windows host firewall hardening on the defensive side.</p>
         <div class="tag-row">
-          <span class="tag">NIS2</span><span class="tag">CyFun</span><span class="tag">Risk Register</span><span class="tag">Compliance Mapping</span>
+          <span class="tag">Nmap</span><span class="tag">sqlmap</span><span class="tag">OWASP ZAP</span><span class="tag">Hydra</span><span class="tag">Snort</span>
         </div>
-        <a class="det-link" href="https://github.com/jaden-mas1010/cyfun-nis2-gap-assessment" target="_blank" rel="noopener">View repository →</a>
+        <div class="attck-row">
+          <span class="attck-tag">Discovery</span><span class="attck-tag">Initial Access</span>
+        </div>
+        <a class="det-link" href="https://github.com/jaden-mas1010/Vulnerability-Assessment-Detection-Lab" target="_blank" rel="noopener">View repository →</a>
       </article>
 
       <article class="det-card">
@@ -469,16 +472,16 @@
     <div class="sec-head"><span class="sec-index">02</span><h2>Repository Index</h2></div>
     <div class="repo-intro">
       <p class="sec-sub" style="margin:0;">Every public repository, grouped by domain — filter to the area most relevant to the role.</p>
-      <span class="repo-count"><strong>45</strong> repositories across <strong>9</strong> categories</span>
+      <span class="repo-count"><strong>46</strong> repositories across <strong>9</strong> categories</span>
     </div>
 
     <div class="filter-row" id="repoFilters">
-      <button class="filter-chip active" data-filter="all">All<span class="fc-n">45</span></button>
+      <button class="filter-chip active" data-filter="all">All<span class="fc-n">46</span></button>
       <button class="filter-chip" data-filter="ics">OT & ICS Security<span class="fc-n">4</span></button>
       <button class="filter-chip" data-filter="grc">GRC & Compliance<span class="fc-n">4</span></button>
       <button class="filter-chip" data-filter="soc">SOC, SIEM &amp; Detection Engineering<span class="fc-n">10</span></button>
       <button class="filter-chip" data-filter="ml">AI/ML for Security<span class="fc-n">3</span></button>
-      <button class="filter-chip" data-filter="pentest">Penetration Testing &amp; Vulnerability Assessment<span class="fc-n">9</span></button>
+      <button class="filter-chip" data-filter="pentest">Penetration Testing &amp; Vulnerability Assessment<span class="fc-n">10</span></button>
       <button class="filter-chip" data-filter="netsec">Network Security &amp; Automation<span class="fc-n">4</span></button>
       <button class="filter-chip" data-filter="forensics">Forensics, Data &amp; Crypto Tools<span class="fc-n">5</span></button>
       <button class="filter-chip" data-filter="dev">Software &amp; App Development<span class="fc-n">4</span></button>
@@ -676,6 +679,14 @@
           <span class="repo-lang"></span>
         </div>
         <p class="repo-desc">End-to-end Metasploitable2 vulnerability assessment: reconnaissance, exploitation (vsftpd backdoor, distcc RCE, Samba CVE-2007-2447), reverse shells, and Wireshark traffic analysis.</p>
+        <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
+      </a>
+      <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/Vulnerability-Assessment-Detection-Lab" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <span class="repo-name">Vulnerability-Assessment-Detection-Lab</span>
+          <span class="repo-lang"></span>
+        </div>
+        <p class="repo-desc">End-to-end vulnerability assessment and detection lab: Nmap/Nikto enumeration, manual + sqlmap SQLi validation, OWASP ZAP scanning, Hydra credential testing, Snort 3 detection, log triage, and host firewall hardening.</p>
         <span class="repo-cat">Penetration Testing &amp; Vulnerability Assessment</span>
       </a>
       <a class="repo-card" data-cat="pentest" href="https://github.com/jaden-mas1010/open-source-vulnerability-analysis" target="_blank" rel="noopener">
